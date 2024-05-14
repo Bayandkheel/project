@@ -25,7 +25,9 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 script {
-                    bat 'mvn sonar:sonar'
+                    withSonarQubeEnv('SonarQube') {
+                        bat 'mvn sonar:sonar -Dsonar.host.url=http://your-sonarqube-host:9000'
+                    }
                 }
             }
         }
@@ -33,8 +35,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 script {
-                    withSonarQubeEnv('SonarQube') {
-                bat 'mvn sonar:sonar -Dsonar.host.url=http://your-sonarqube-host:9000'
+                    bat 'mvn dependency-check:check'
                 }
             }
         }
