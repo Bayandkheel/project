@@ -8,13 +8,10 @@
     <packaging>jar</packaging>
     <name>My App</name>
 
-         <properties>
-    <sonar.host.url>http://your-sonarqube-host:9000</sonar.host.url>
-</properties>
-
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <sonar.host.url>http://your-sonarqube-host:9000</sonar.host.url>
     </properties>
 
     <dependencies>
@@ -83,3 +80,4 @@
         </plugins>
     </build>
 </project>
+
