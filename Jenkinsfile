@@ -8,10 +8,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('Bayans') {
-                    script {
-                        bat 'mvn clean package'
-                    }
+                script {
+                    bat 'mvn clean package'
                 }
             }
         }
