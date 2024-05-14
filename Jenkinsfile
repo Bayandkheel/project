@@ -33,7 +33,8 @@ pipeline {
         stage('Security Scan') {
             steps {
                 script {
-                    bat 'mvn dependency-check:check'
+                    withSonarQubeEnv('SonarQube') {
+                bat 'mvn sonar:sonar -Dsonar.host.url=http://your-sonarqube-host:9000'
                 }
             }
         }
